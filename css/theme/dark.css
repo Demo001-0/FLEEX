@@ -1,0 +1,102 @@
+/* css/theme/dark.css — dark mode. Applied only when <html data-theme="dark"> (user toggle; the site always opens in light). */
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0e0e10; --card:#17171a; --ink:#f1eee8; --brand:#f1eee8; --hero:#17171a;
+  --bar:#000; --dark:#060607; --accent:#f1eee8; --line:#2b2b30; --white:#17171a;
+}
+html[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+html[data-theme="dark"] p,html[data-theme="dark"] li,html[data-theme="dark"] .lk-sub,html[data-theme="dark"] .qv-desc,html[data-theme="dark"] .acc p,html[data-theme="dark"] .desc{color:#b9b5ac}
+html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] h3,html[data-theme="dark"] h4,html[data-theme="dark"] .section-title,html[data-theme="dark"] .nav a,html[data-theme="dark"] .card h3,html[data-theme="dark"] .price,html[data-theme="dark"] .crumbs,html[data-theme="dark"] .crumbs a{color:var(--ink)}
+html[data-theme="dark"] .price s,html[data-theme="dark"] .qv-info .price s{color:#8a867d}
+html[data-theme="dark"] .nav a:hover,html[data-theme="dark"] .nav a.active{color:var(--ink);border-color:var(--ink)}
+html[data-theme="dark"] .logo img{filter:invert(1)}
+html[data-theme="dark"] .header{background:var(--bg)}
+html[data-theme="dark"] .header.is-scrolled{box-shadow:0 8px 28px rgba(0,0,0,.5)}
+html[data-theme="dark"] .splash-copy *,html[data-theme="dark"] .sp-tag,html[data-theme="dark"] .sp-sub{color:var(--ink)}
+html[data-theme="dark"] .sp-sub{color:#b9b5ac}
+
+/* hero */
+html[data-theme="dark"] .hero,html[data-theme="dark"] .hero2,html[data-theme="dark"] .collection-hero{background:linear-gradient(180deg,#17171a 0%,#101012 100%);color:var(--ink)}
+html[data-theme="dark"] .hero-tag{background:rgba(255,255,255,.08);color:var(--ink)}
+html[data-theme="dark"] .hero2 h1,html[data-theme="dark"] .hero2 .copy p{color:var(--ink)}
+html[data-theme="dark"] .arch,html[data-theme="dark"] .hero-img,html[data-theme="dark"] .cc-img,html[data-theme="dark"] .lk-tile{background:#1d1d21}
+html[data-theme="dark"] .arch::after,html[data-theme="dark"] .hero-img::after{opacity:.18}
+html[data-theme="dark"] .float-card{background:rgba(23,23,26,.94);border-color:var(--ink);box-shadow:8px 8px 0 var(--ink);color:var(--ink)}
+html[data-theme="dark"] .float-card h4{color:var(--ink)}
+
+/* buttons */
+html[data-theme="dark"] .btn.solid,html[data-theme="dark"] .badge,html[data-theme="dark"] .cat:hover,html[data-theme="dark"] .dots button.active{background:var(--ink);border-color:var(--ink);color:#111}
+html[data-theme="dark"] .btn.solid:hover,html[data-theme="dark"] .hero2 .btn.solid:hover{background:var(--pop);border-color:var(--pop);color:#fff}
+html[data-theme="dark"] .btn:not(.solid){background:rgba(255,255,255,.05);color:var(--ink);box-shadow:none}
+html[data-theme="dark"] .btn:not(.solid):hover,html[data-theme="dark"] .hero2 .btn.ghost:hover{background:var(--ink);color:#111}
+html[data-theme="dark"] .badge.sold{background:#2b2b30;color:#b9b5ac}
+html[data-theme="dark"] .sale .btn.solid{background:#f1eee8;color:#111;border-color:#f1eee8}
+html[data-theme="dark"] .cart-count{background:var(--pop);color:#fff}
+
+/* cards & surfaces */
+html[data-theme="dark"] .card,html[data-theme="dark"] .ccard,html[data-theme="dark"] .cc-info,html[data-theme="dark"] .qv-box,html[data-theme="dark"] .drawer,html[data-theme="dark"] .dropdown,html[data-theme="dark"] .search-panel,html[data-theme="dark"] .hot-pop{background:var(--card);color:var(--ink);border-color:var(--line)}
+html[data-theme="dark"] .card:hover{box-shadow:0 18px 44px rgba(0,0,0,.6)}
+html[data-theme="dark"] .card .img,html[data-theme="dark"] .gallery,html[data-theme="dark"] .qv-img,html[data-theme="dark"] .wl-img,html[data-theme="dark"] .card .img img{background:#202024}
+html[data-theme="dark"] .card .img.shimmer{background:linear-gradient(100deg,#1c1c20 30%,#26262b 50%,#1c1c20 70%);background-size:200% 100%}
+html[data-theme="dark"] .cc-info h3,html[data-theme="dark"] .cc-count{color:var(--ink)}
+html[data-theme="dark"] .cc-count{color:#8a867d}
+html[data-theme="dark"] .ccard .ci{background:rgba(23,23,26,.93);color:var(--ink)}
+html[data-theme="dark"] .features .fi{background:#232327;color:var(--ink)}
+html[data-theme="dark"] .features h4{color:var(--ink)}
+html[data-theme="dark"] .cc-img .ci{background:rgba(23,23,26,.93);color:var(--ink)}
+
+/* controls */
+html[data-theme="dark"] .sz,html[data-theme="dark"] .density button,html[data-theme="dark"] .qty,html[data-theme="dark"] .qty button{background:var(--card);color:var(--ink);border-color:#4a4a50}
+html[data-theme="dark"] .sz:hover{background:#232327}
+html[data-theme="dark"] .sz.on{background:var(--ink);color:#111;border-color:var(--ink)}
+html[data-theme="dark"] .density button.on{border-color:var(--ink);color:var(--ink)}
+html[data-theme="dark"] .pill{border-color:#4a4a50;color:var(--ink)}
+html[data-theme="dark"] .pill:hover{background:#232327}
+html[data-theme="dark"] .pill.on{background:var(--ink);color:#111;border-color:var(--ink)}
+html[data-theme="dark"] input,html[data-theme="dark"] textarea,html[data-theme="dark"] select,html[data-theme="dark"] .footer input,html[data-theme="dark"] .contact-form input,html[data-theme="dark"] .contact-form textarea,html[data-theme="dark"] #searchInput{background:#1d1d21;color:var(--ink);border-color:#3a3a40}
+html[data-theme="dark"] .toolbar,html[data-theme="dark"] .toolbar *{color:var(--ink)}
+html[data-theme="dark"] .toolbar{border-color:var(--line)}
+html[data-theme="dark"] .acc,html[data-theme="dark"] .acc details,html[data-theme="dark"] .wl li{border-color:var(--line)}
+html[data-theme="dark"] .acc summary{color:var(--ink)}
+
+/* floating bits from the advanced layer */
+html[data-theme="dark"] .wish-btn,html[data-theme="dark"] .qv-x{background:rgba(23,23,26,.92);color:var(--ink)}
+html[data-theme="dark"] .wish-btn.on{background:var(--pop);color:#fff}
+html[data-theme="dark"] .qv-btn{background:rgba(241,238,232,.95);color:#111}
+html[data-theme="dark"] .qv-btn:hover{background:var(--pop);color:#fff}
+html[data-theme="dark"] .qv-back{background:rgba(0,0,0,.7)}
+html[data-theme="dark"] .buybar{background:rgba(14,14,16,.94);border-color:var(--line)}
+html[data-theme="dark"] .buybar span{color:#b9b5ac}
+html[data-theme="dark"] .to-top{background:rgba(241,238,232,.92);color:#111}
+html[data-theme="dark"] #sunTop{background:rgba(23,23,26,.94)}
+html[data-theme="dark"] .hot{background:rgba(23,23,26,.92)}
+html[data-theme="dark"] .look-photo{background:#1d1d21}
+
+/* drawer / cart */
+html[data-theme="dark"] .drawer-head,html[data-theme="dark"] .drawer-foot,html[data-theme="dark"] .line{border-color:var(--line)}
+html[data-theme="dark"] .progress .track{background:#2b2b30}
+html[data-theme="dark"] .progress .fill{background:var(--pop)}
+html[data-theme="dark"] .toast{background:var(--ink);color:#111}
+
+/* footer, strips & banners stay dark; make them a touch deeper than the page */
+html[data-theme="dark"] .footer{background:var(--dark);border-top:1px solid var(--line)}
+html[data-theme="dark"] .footer form button{background:var(--ink);color:#111;border-color:var(--ink)}
+html[data-theme="dark"] .marq{background:#000}
+html[data-theme="dark"] .sale{background:linear-gradient(135deg,#1e1e22 0%,#131316 100%);border:1px solid var(--line)}
+html[data-theme="dark"] .inv-base,html[data-theme="dark"] .inv-stage{background:var(--card)}
+
+/* smooth switch */
+html.theme-anim,html.theme-anim *{transition:background-color .35s,color .35s,border-color .35s !important}
+
+/* text that earlier layers pinned to dark greys */
+html[data-theme="dark"] main p,html[data-theme="dark"] .splash-copy p,html[data-theme="dark"] .sp-sub,html[data-theme="dark"] .inv-copy p,html[data-theme="dark"] .look-copy p,html[data-theme="dark"] .features p{color:#b9b5ac !important}
+html[data-theme="dark"] .sp-tag,html[data-theme="dark"] .sp-tag span,html[data-theme="dark"] .inv-copy h2,html[data-theme="dark"] .inv-eyebrow,html[data-theme="dark"] .look-copy h2,html[data-theme="dark"] .hero-copy h1,html[data-theme="dark"] .collection-hero h1{color:var(--ink) !important}
+html[data-theme="dark"] .collection-hero p{color:#b9b5ac !important}
+html[data-theme="dark"] .card .info h3,html[data-theme="dark"] .card .price{color:var(--ink) !important}
+
+/* nav, titles (typewriter spans) and button icons */
+html[data-theme="dark"] .nav a{color:#d9d6cf !important}
+html[data-theme="dark"] .nav a.active,html[data-theme="dark"] .nav a:hover{color:#2fb5a8 !important}
+html[data-theme="dark"] h1,html[data-theme="dark"] h1 *,html[data-theme="dark"] .product h1{color:var(--ink) !important}
+html[data-theme="dark"] .btn.solid::before,html[data-theme="dark"] .btn.solid svg{filter:invert(1)}
+html[data-theme="dark"] .btn.solid:hover::before,html[data-theme="dark"] .btn.solid:hover svg{filter:none}

@@ -1,0 +1,113 @@
+/* css/refinements/advanced-ui.css — advanced UI layer (appended last in main.css) */
+:root{--adv-ease:cubic-bezier(.22,.8,.24,1)}
+
+/* scroll progress + back to top */
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:300;background:var(--pop);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
+.to-top{position:fixed;right:20px;bottom:22px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(17,17,17,.88);color:#fff;display:grid;place-items:center;z-index:120;opacity:0;transform:translateY(14px);pointer-events:none;transition:.3s var(--adv-ease);backdrop-filter:blur(8px)}
+.to-top svg{width:20px;height:20px}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{background:var(--pop)}
+
+/* header glass on scroll */
+.header{transition:box-shadow .3s,background .3s}
+.header.is-scrolled{box-shadow:0 8px 28px rgba(0,0,0,.07)}
+
+/* wishlist header button */
+.wish-open{position:relative}
+.wish-count{display:none}
+.wish-count.show{display:grid}
+
+/* card: shimmer, wishlist heart, quick view */
+.card .img.shimmer{background:linear-gradient(100deg,#ece9e2 30%,#f6f4ef 50%,#ece9e2 70%);background-size:200% 100%;animation:advShimmer 1.3s linear infinite}
+@keyframes advShimmer{to{background-position:-200% 0}}
+.card .img img{background:#ece9e2}
+.wish-btn{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--ink);display:grid;place-items:center;z-index:3;box-shadow:0 4px 14px rgba(0,0,0,.12);transition:transform .25s var(--adv-ease),background .2s,color .2s}
+.wish-btn svg{width:19px;height:19px}
+.wish-btn:hover{transform:scale(1.1)}
+.wish-btn.on{background:var(--pop);color:#fff}
+.wish-btn.on svg{fill:currentColor}
+.card .badge{z-index:2}
+.qv-btn{position:absolute;left:12px;right:12px;bottom:12px;height:44px;border:0;background:rgba(17,17,17,.92);color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;font:600 12px var(--font-body);letter-spacing:.16em;text-transform:uppercase;z-index:3;transform:translateY(130%);transition:transform .35s var(--adv-ease),background .2s;backdrop-filter:blur(6px)}
+.qv-btn svg{width:17px;height:17px}
+.qv-btn:hover{background:var(--pop)}
+.card:hover .qv-btn,.card:focus-within .qv-btn{transform:none}
+@media (hover:none){.qv-btn{transform:none;left:auto;right:12px;width:44px;padding:0;bottom:12px}.qv-btn span{display:none}}
+
+/* modal */
+.qv{position:fixed;inset:0;z-index:400;display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .22s}
+.qv[hidden]{display:none}
+.qv.open{opacity:1}
+.qv-back{position:absolute;inset:0;background:rgba(10,10,10,.55);backdrop-filter:blur(6px)}
+.qv-box{position:relative;background:var(--card);width:min(880px,100%);max-height:calc(100vh - 36px);overflow:auto;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.35);transform:translateY(18px) scale(.98);transition:transform .35s var(--adv-ease)}
+.qv.open .qv-box{transform:none}
+.qv-x{position:absolute;top:10px;right:12px;width:40px;height:40px;border:0;background:rgba(255,255,255,.9);border-radius:50%;font-size:26px;line-height:1;z-index:5;color:var(--ink)}
+.qv-grid{display:grid;grid-template-columns:1fr 1fr}
+.qv-img{aspect-ratio:4/5;background:var(--hero);overflow:hidden}
+.qv-img img,.qv-img svg{width:100%;height:100%;object-fit:cover}
+.qv-info{padding:44px 36px 36px;display:flex;flex-direction:column;gap:12px}
+.qv-cat{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#777;font-weight:600}
+.qv-info h3{font-family:var(--font-head);font-weight:500;font-size:24px;line-height:1.2;letter-spacing:.03em}
+.qv-info .price{font-size:18px;font-weight:600}
+.qv-info .price s{color:#999;font-weight:400;margin-right:6px}
+.qv-desc{color:#555;font-size:15px;line-height:1.7}
+.qv-sizes{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.qv-sizes.need .sz{border-color:var(--pop);box-shadow:0 0 0 1px var(--pop)}
+.qv-row{display:flex;gap:12px;align-items:stretch;margin-top:8px}
+.qv-row .qty{margin:0}
+.qv-add{flex:1;min-height:48px}
+.qv-more{font-size:13px;letter-spacing:.08em;border-bottom:1px solid currentColor;align-self:flex-start;padding-bottom:2px;margin-top:6px}
+body.qv-lock{overflow:hidden}
+.wl{padding:36px}
+.wl h3{font-family:var(--font-head);font-weight:500;font-size:22px;margin-bottom:18px;letter-spacing:.04em}
+.wl ul{list-style:none;display:grid;gap:14px}
+.wl li{display:grid;grid-template-columns:72px 1fr 32px;gap:14px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}
+.wl-img{aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:var(--hero)}
+.wl-img img,.wl-img svg{width:100%;height:100%;object-fit:cover}
+.wl-rm{border:0;background:none;font-size:24px;color:#777}
+.wl-empty{margin-bottom:18px;color:#666}
+@media (max-width:700px){
+  .qv{place-items:end center;padding:0}
+  .qv-box{border-radius:16px 16px 0 0;max-height:92vh}
+  .qv-grid{grid-template-columns:1fr}
+  .qv-img{aspect-ratio:1/1}
+  .qv-info{padding:22px 20px 28px}
+}
+
+/* product page */
+.product .gallery img,.product .gallery svg{object-fit:cover}
+.product .gallery.zoomable{cursor:zoom-in;position:relative}
+.product .gallery.zoomable img,.product .gallery.zoomable svg{transition:transform .5s var(--adv-ease)}
+@media (hover:hover){.product .gallery.zoomable:hover img,.product .gallery.zoomable:hover svg{transform:scale(1.8)}}
+.acc{margin:22px 0 6px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 2px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-size:20px;font-weight:300;transition:transform .3s var(--adv-ease)}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc p{padding:0 2px 18px;color:#555;font-size:15px;line-height:1.7}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:150;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px clamp(16px,4vw,64px);display:flex;justify-content:space-between;align-items:center;gap:16px;transform:translateY(110%);transition:transform .4s var(--adv-ease)}
+.buybar.show{transform:none}
+.buybar div{display:flex;flex-direction:column;min-width:0}
+.buybar b{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.buybar span{font-size:14px;color:#555}
+.buybar .btn{white-space:nowrap}
+@media (min-width:900px){.buybar{display:none}}
+body:has(.buybar.show) .to-top{bottom:84px}
+
+/* shop: category pills + density */
+.pills{display:flex;align-items:center;gap:8px;padding:22px 0 4px;overflow-x:auto;scrollbar-width:none}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:none;height:40px;padding:0 20px;border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;font:500 13px var(--font-body);letter-spacing:.08em;transition:.25s var(--adv-ease)}
+.pill:hover{background:var(--hero)}
+.pill.on{background:var(--ink);color:#fff}
+.pills-sp{flex:1}
+.density{display:flex;gap:4px;flex:none}
+.density button{width:38px;height:38px;border:1px solid var(--line);background:#fff;font-size:16px;color:#777;border-radius:4px}
+.density button.on{border-color:var(--ink);color:var(--ink)}
+#grid[data-density="2"]{grid-template-columns:repeat(2,1fr)}
+@media (max-width:1000px){.density{display:none}}
+
+/* product-card polish */
+.card{transition:transform .35s var(--adv-ease),box-shadow .35s var(--adv-ease)}
+.card:hover{box-shadow:0 18px 44px rgba(20,20,20,.12)}
+@media (prefers-reduced-motion:reduce){.card .img.shimmer{animation:none}.qv-box,.qv-btn{transition:none}}

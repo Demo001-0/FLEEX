@@ -1,0 +1,18 @@
+/* css/theme/variety-pass.css — Variety pass: light-mode palette inside dark */
+/* =====================================================================
+   VARIETY PASS — uses only the light-mode palette
+   cream #f9f8f7 · blush #e0ddd7 · pink #d9d5ce · rose #202020 · berry #191919 · mauve #141414 · ink #111111
+   ===================================================================== */
+/* --- category cards: icon circles rotate through the light-mode tones --- */
+/* --- sections: alternate between the light-mode surfaces --- */
+/* categories band: mauve (light mode's --dark) */
+/* sale banner: light blush with dark ink, like the light theme's hero */
+/* features: cream cards */
+/* footer: mauve */
+.features .fi{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;background:#e9e7e3;color:#161616}
+.features .fi svg{width:27px;height:27px}
+/* --- product cards: light cream like light mode (dark mode keeps only the page around them dark) --- */
+/* --- category cards: light cream like light mode --- */
+/* --- big hero sun: fainter --- */
+/* --- cream surfaces: a deeper blush instead of near-white --- */
+/* ---- tighter vertical rhythm (dark overrides) ---- */

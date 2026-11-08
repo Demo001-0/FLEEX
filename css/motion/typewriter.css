@@ -1,0 +1,16 @@
+/* css/motion/typewriter.css — Typewriter headings */
+/* ---- typewriter headings: letters ink in, caret glows and fades out ---- */
+.tw .tww{display:inline-block;white-space:nowrap}
+.tw .c{position:relative;display:inline-block;opacity:0}
+.tw .c.on{opacity:1;animation:twin .7s var(--ease,ease) both}
+@keyframes twin{0%{opacity:0;transform:translateY(.45em) scale(.7);filter:blur(4px);color:var(--accent,#191919)}
+  60%{filter:blur(0)}
+  100%{opacity:1;transform:none;filter:none}}
+.tw .c.last::after{content:"";position:absolute;left:calc(100% + 1px);top:8%;width:2px;height:84%;border-radius:2px;
+  background:linear-gradient(180deg,#cac5bc,#191919);box-shadow:0 0 10px rgba(32,32,32,0.45);animation:twblink .9s steps(1) infinite}
+.tw-done .c.last::after{animation:twend 2.4s ease forwards}
+@keyframes twblink{50%{opacity:0}}
+@keyframes twend{0%,24%,48%,72%{opacity:1}12%,36%,60%{opacity:0}100%{opacity:0}}
+@keyframes twin-d{0%{opacity:0;transform:translateY(.45em) scale(.7);filter:blur(4px);color:#ffffff}
+  60%{filter:blur(0)}
+  100%{opacity:1;transform:none;filter:none}}

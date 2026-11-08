@@ -1,0 +1,12 @@
+/* css/refinements/glass-card-rose.css — Rose-champagne glass card */
+/* ---- rose-champagne glass card (keeps the mirror shine) ---- */
+.float-card{background:
+    linear-gradient(115deg,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.12) 30%,rgba(255,255,255,0.04) 50%,rgba(255,255,255,0.3) 72%,rgba(255,255,255,0.6) 100%),
+    linear-gradient(160deg,rgba(243,242,240,0.9),rgba(224,221,215,0.82));
+  -webkit-backdrop-filter:blur(10px) saturate(1.3);
+  backdrop-filter:blur(10px) saturate(1.3);
+  border:1px solid rgba(255,255,255,0.85);
+  box-shadow:0 16px 38px rgba(20,20,20,0.168),inset 0 1px 0 #ffffff,inset 0 -1px 0 rgba(255,255,255,0.4),inset 0 0 24px rgba(255,255,255,0.4);}
+.float-card h4{color:#101010;font-weight:500;text-shadow:0 1px 0 rgba(255,255,255,0.55)}
+.float-card .price{color:#141414;font-weight:500;letter-spacing:.04em;text-shadow:0 1px 0 rgba(255,255,255,0.55)}
+.float-card .price s{color:#1e1e1e;font-weight:400}

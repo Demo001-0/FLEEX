@@ -1,0 +1,193 @@
+/* css/theme/calm.css — "Calm" brand layer (LOADED LAST in main.css)
+   Black & white first. Secondary colours are borrowed from the real store:
+   aqua shirts / "New Collection" light · warm spot-light · plant sage · wood floor. */
+@import url("https://fonts.googleapis.com/css2?family=Yellowtail&display=swap");
+
+:root{
+  --bg:#f7f6f3; --hero:#f0eee9; --line:#e4e1da;
+  --pop:#2f9e94;  --tx-accent:#2f9e94;          /* was signal orange → calm teal */
+  --aqua:#9fdcd4; --warm:#f6e6c8; --sage:#a9b8a3; --wood:#8a6a4a;
+  --script:'Yellowtail','Brush Script MT',cursive;
+}
+
+/* ---------- calmer typography: lighter weights, wider air ---------- */
+html:root :is(h1,h2,h3,h4,h5,.section-title,.hero h1,.hero2 h1,.sale h2,.product h1,.sp-tag,.drawer-head,.subtotal){font-weight:500}
+html:root :is(.hero h1,.hero2 h1,.collection-hero h1){font-weight:400;letter-spacing:.03em;line-height:1.12}
+html:root .section-title{font-weight:400;letter-spacing:.2em;margin-bottom:44px}
+html:root :is(.btn,.hero-tag,.sale-tag,.badge,.lk-cap){font-weight:500}
+html:root .nav a{font-weight:500;letter-spacing:.2em}
+html:root .nav a.active{border-bottom-width:1px}
+html:root .hero2 h1::after{height:1px;width:72px;background:var(--ink)}
+.sp-tag::after{height:1px}
+.container{max-width:1320px}
+.section{padding-top:clamp(56px,8vw,110px)}
+
+/* ---------- buttons: thin, quiet, slow ---------- */
+.btn{border-width:1px;letter-spacing:.22em;padding:15px 34px;transition:background .45s,color .45s,border-color .45s,letter-spacing .45s}
+.btn:hover{letter-spacing:.28em}
+.btn.solid:hover,.hero2 .btn.solid:hover{background:transparent;color:var(--ink)}
+
+/* ---------- cards: flat, thin, hang like on a rail ---------- */
+.card,.sale{border-radius:0;border-color:var(--line)}
+.card{transform-origin:50% 0;transition:box-shadow .4s,transform .4s}
+.card:hover{box-shadow:0 18px 40px rgba(17,17,17,.07);transform:translateY(-2px);animation:hang 1.2s ease-out}
+.card .info{padding:22px 22px 26px}
+.badge{border-radius:0;background:var(--ink);letter-spacing:.2em;font-size:11px}
+@keyframes hang{0%{rotate:0deg}22%{rotate:1.4deg}50%{rotate:-.9deg}75%{rotate:.4deg}100%{rotate:0deg}}
+
+/* ---------- warm spot-light that follows the cursor in the hero ---------- */
+.hero2{position:relative;background:linear-gradient(180deg,var(--hero) 0%,#f4efe4 100%)}
+.hero2 .container{position:relative;z-index:1}
+.hero2::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(circle 360px at var(--mx,70%) var(--my,30%),rgba(255,214,150,.34),transparent 70%);
+  transition:opacity .6s}
+
+/* ---------- scroll reveal for the new sections ---------- */
+.calm-on .rv{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.calm-on .rv.in{opacity:1;transform:none}
+
+/* ---------- script accent + marquee ---------- */
+.script{font-family:var(--script);text-transform:none;letter-spacing:0;font-weight:400}
+.marq{overflow:hidden;border-block:1px solid var(--line);padding:22px 0;background:var(--bg)}
+.marq-track{display:flex;width:max-content;animation:marq 38s linear infinite}
+.marq:hover .marq-track{animation-play-state:paused}
+.marq-group{display:flex;align-items:center;gap:clamp(24px,4vw,56px);padding-right:clamp(24px,4vw,56px);white-space:nowrap}
+.marq-group span{font-family:var(--font-head);text-transform:uppercase;letter-spacing:.32em;font-size:clamp(13px,1.6vw,18px)}
+.marq-group span.script{font-size:clamp(28px,3.6vw,44px);line-height:1}
+.marq-group i{width:5px;height:5px;border-radius:50%;background:var(--pop)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- LIFE INVERTED: cursor reveals the opposite colourway ---------- */
+.inv{padding:clamp(56px,8vw,110px) 0 0}
+.inv-stage{position:relative;overflow:hidden;cursor:crosshair;touch-action:pan-y}
+.inv-layer{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:clamp(24px,5vw,80px);
+  padding:clamp(40px,6vw,90px) clamp(20px,6vw,100px);background:#f7f6f3;color:#111}
+.inv-flip{position:absolute;inset:0;background:#111;color:#fff;pointer-events:none;
+  clip-path:circle(var(--r,0px) at var(--x,50%) var(--y,50%))}
+.inv-eyebrow{display:block;font-family:var(--font-head);font-size:12px;letter-spacing:.34em;text-transform:uppercase;opacity:.7;margin-bottom:22px}
+.inv h2{font-family:var(--font-head);font-weight:400;text-transform:uppercase;letter-spacing:.12em;line-height:1.08;font-size:clamp(34px,5.6vw,76px);margin-bottom:22px}
+.inv h2 em{font-style:normal;display:inline-block}
+.inv h2 .script{font-size:1.25em;letter-spacing:0;text-transform:none;margin:0 .05em}
+.inv p{max-width:42ch;opacity:.75;margin-bottom:30px}
+.inv-flip .btn{color:#fff;border-color:#fff}
+.inv-photo{position:relative;aspect-ratio:4/5;max-height:620px;overflow:hidden}
+.inv-photo img{width:100%;height:100%;object-fit:cover}
+.inv-flip .inv-photo img{filter:invert(1) hue-rotate(180deg) saturate(.8)}
+.mascot{width:74px;height:auto;margin-top:34px;display:block;opacity:.9}
+.mascot .pupil{transform:translate(var(--px,0px),var(--py,0px))}
+.inv-hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.45;pointer-events:none;z-index:2;color:#888}
+@media(max-width:820px){
+  .inv-layer{grid-template-columns:1fr}
+  .inv-photo{max-height:420px;aspect-ratio:4/4.2}
+}
+
+/* ---------- SHOP THE LOOK: hotspots on a real store photo ---------- */
+.look-wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(28px,6vw,96px);align-items:center}
+.look-photo{position:relative;width:min(100%,calc(78vh * 9 / 16));aspect-ratio:9/16;margin:0 auto;overflow:hidden;background:#ddd}
+.look-photo>img{width:100%;height:100%;object-fit:cover}
+.hot{position:absolute;left:var(--x);top:var(--y);width:30px;height:30px;border:0;border-radius:50%;padding:0;
+  background:rgba(255,255,255,.92);transform:translate(-50%,-50%);transition:transform .3s,background .3s;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.hot::before{content:"";position:absolute;inset:10px;border-radius:50%;background:#111}
+.hot::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid #fff;animation:ping 2.4s ease-out infinite}
+.hot:hover,.hot.on{transform:translate(-50%,-50%) scale(1.18);background:var(--aqua)}
+@keyframes ping{0%{transform:scale(1);opacity:.9}100%{transform:scale(2.3);opacity:0}}
+.hot-pop{position:absolute;left:14px;right:14px;bottom:14px;display:flex;align-items:center;gap:14px;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(8px);padding:14px 16px;animation:popin .45s cubic-bezier(.2,.8,.2,1)}
+.hot-pop[hidden]{display:none}
+.hot-pop>div{flex:1;min-width:0}
+.hot-pop h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;line-height:1.3}
+.hot-pop .price{font-size:14px;margin-top:2px}
+.hot-pop .price s{display:inline;font-size:13px;margin-right:6px}
+.hot-pop .btn{padding:10px 18px;font-size:11px}
+.pop-x{border:0;background:none;font-size:22px;line-height:1;padding:0 2px;color:#111}
+@keyframes popin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.look-copy .section-title{text-align:left;margin-bottom:18px}
+.look-copy>p{max-width:40ch;opacity:.75;margin-bottom:30px}
+.look-list{list-style:none;border-top:1px solid var(--line)}
+.look-list button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:none;border:0;
+  border-bottom:1px solid var(--line);padding:18px 4px;text-align:left;color:var(--ink);font-family:var(--font-head);
+  font-size:14px;letter-spacing:.12em;text-transform:uppercase;transition:padding .35s,color .35s}
+.look-list button span:last-child{opacity:.6;letter-spacing:.04em}
+.look-list button:hover,.look-list button.on{padding-left:14px;color:var(--pop)}
+@media(max-width:820px){.look-wrap{grid-template-columns:1fr}.look-copy{text-align:center}.look-copy .section-title{text-align:center}.look-copy>p{margin-inline:auto}}
+
+@media(prefers-reduced-motion:reduce){
+  .marq-track,.hot::after,.card:hover{animation:none}
+  .calm-on .rv{opacity:1;transform:none;transition:none}
+}
+
+/* mascot colours in the inverted layer */
+.inv-flip .mascot{--eye-bg:#111}
+.inv-flip .mascot .pupil{fill:#fff}
+
+/* left-aligned title inside the look copy (beats the global centred .section-title) */
+html:root .look-copy .section-title{text-align:left}
+.look-copy .section-title::after{margin-left:0!important}
+@media(max-width:820px){html:root .look-copy .section-title{text-align:center}.look-copy .section-title::after{margin-inline:auto!important}}
+
+/* =====================================================================
+   TYPE HARMONY — one family (Outfit), five clear roles.
+   Change a token here and every title / subtitle / label follows.
+   The script font is an ACCENT only: one word per section, never body text.
+   ===================================================================== */
+:root{
+  /* roles: tracking (letter-spacing) */
+  --track-display:.08em;   /* hero + big statements          */
+  --track-title:.16em;     /* section titles                 */
+  --track-label:.24em;     /* eyebrows, tags, captions       */
+  --track-ui:.16em;        /* nav, buttons                   */
+  --track-sub:.02em;       /* subtitles / paragraphs         */
+  /* roles: sizes */
+  --fs-display:clamp(34px,5vw,64px);
+  --fw-display:300; --fw-title:400; --fw-label:500; --fw-sub:300;
+  --sub-width:46ch;
+}
+
+/* 1 · DISPLAY — hero headline + the "Life Inverted Style" statement */
+html:root :is(.hero h1,.hero2 h1,.collection-hero h1,.inv h2){
+  font-family:var(--font-head);font-size:var(--fs-display);font-weight:var(--fw-display);
+  letter-spacing:var(--track-display);line-height:1.1;text-transform:uppercase}
+html:root .inv h2 .script{font-size:1.2em;letter-spacing:0;line-height:.8}
+
+/* 2 · TITLE — every section title, sale title, product title */
+html:root :is(.section-title,.sale h2,.banner h2,.product h1,.look-copy .section-title){
+  font-family:var(--font-head);font-size:var(--fs-h2);font-weight:var(--fw-title);
+  letter-spacing:var(--track-title);line-height:1.15;text-transform:uppercase}
+html:root .sp-tag{font-size:clamp(18px,2.6vw,26px);font-weight:var(--fw-title);letter-spacing:var(--track-title)}
+
+/* 3 · HEADING-3 — card names, hero card, features, footer headings */
+html:root :is(.card h3,.cc-info h3,.float-card h4,.features h4,.footer h5,.line h4,.hot-pop h4){
+  font-family:var(--font-head);font-weight:var(--fw-label);letter-spacing:.1em;text-transform:uppercase}
+
+/* 4 · LABEL — eyebrows, tags, badges, captions, nav, buttons */
+html:root :is(.inv-eyebrow,.hero-tag,.sale-tag,.badge,.lk-cap,.cc-count,.marq-group span:not(.script)){
+  font-family:var(--font-head);font-size:var(--fs-xs);font-weight:var(--fw-label);
+  letter-spacing:var(--track-label);text-transform:uppercase}
+html:root .nav a{letter-spacing:var(--track-ui)}
+html:root .btn{letter-spacing:var(--track-ui);font-size:var(--fs-btn)}
+html:root .btn:hover{letter-spacing:.2em}
+html:root .marq-group span:not(.script){font-size:clamp(12px,1.4vw,15px)}
+
+/* 5 · SUBTITLE — the paragraph that sits under a title (same look everywhere) */
+html:root :is(.hero p,.hero2 p,.sale p,.banner p,.lk-sub,.sp-sub,.inv p,.look-copy>p){
+  font-family:var(--font-body);font-size:var(--fs-lead);font-weight:var(--fw-sub);
+  letter-spacing:var(--track-sub);line-height:1.75;text-transform:none;
+  color:var(--tx-soft);opacity:1;max-width:var(--sub-width)}
+html:root .lk-sub,html:root .sp-sub{margin-inline:auto}
+html:root .inv-flip p{color:rgba(255,255,255,.72)}
+
+/* 6 · rhythm: same gap between a title and its subtitle everywhere */
+html:root :is(.section-title)+.lk-sub{margin-top:-24px;margin-bottom:40px}
+html:root :is(.hero2 h1,.sale h2,.inv h2){margin-bottom:20px}
+html:root .hero2 h1::after{margin-top:20px}
+
+/* Arabic text keeps Tajawal and normal tracking (letter-spacing breaks Arabic joins) */
+html:root :is(.product .desc,[lang="ar"],[dir="rtl"]){letter-spacing:0;text-transform:none;font-family:'Tajawal','Outfit',sans-serif}
+
+/* script accent inside the marquee must not inherit the uppercase / tracking of the other items */
+html:root .marq-group span.script{font-family:var(--script);text-transform:none;letter-spacing:0;font-weight:400}
+
+/* "Inverted": same font, same size — only the fill is inverted (outline). Flips to white in the dark layer. */
+html:root .inv h2 .outline{color:transparent;-webkit-text-stroke:1.2px #111;paint-order:stroke fill}
+html:root .inv-flip h2 .outline{-webkit-text-stroke-color:#fff}
+html:root .inv p{line-height:1.65}
